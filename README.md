@@ -82,3 +82,79 @@
         THIS IS MULTI LINE COMMENT
     */
      ```
+     <hr>
+  
+ - ## **_Flow-Control_**
+    ```java
+        /*          IF ELSE         */
+        
+        int number = 0;
+        // checks if number is greater than 0
+        if (number > 0) {
+        System.out.println("The number is positive.");
+        }
+
+        // checks if number is less than 0
+        else if (number < 0) {
+        System.out.println("The number is negative.");
+        }
+    
+        // if both condition is false
+        else {
+        System.out.println("The number is 0.");
+    ```
+    ```java
+           /*           SWITCH STATEMENT        */
+           
+          int expression = 9;
+           
+           switch(expression) {
+        
+             case 2:
+               System.out.println("Small Size");
+               break;
+
+             case 3:
+               System.out.println("Large Size");
+               break;
+            
+          // default case
+          default:
+            System.out.println("Unknown Size");
+        }
+    ```
+    ```java
+        /*              FOR LOOP        */
+        
+      int sum = 0;
+      int n = 1000;
+
+      // for loop
+      for (int i = n; i >= 1; --i) {
+          // body inside for loop
+        sum += i;     // sum = sum + i
+     }
+       
+        System.out.println("Sum = " + sum);
+    ```
+    ```java
+        /*          FOR-EACH LOOP       */
+        
+      char[] vowels = {'a', 'e', 'i', 'o', 'u'};
+  
+      // iterating through an array using the for-each loop
+      for (char item: vowels) {
+       System.out.println(item);
+     }
+    ```
+    ```java
+        /*      WHILE LOOP         */
+        
+      int i = 1, n = 5;
+    
+     // while loop from 1 to 5
+       while(i <= n) {
+        System.out.println(i);
+       i++;
+     }
+    ```
