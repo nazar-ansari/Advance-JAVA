@@ -49,3 +49,36 @@
              System.out.println(myFloat);    // prints 3.4
              System.out.println(myDoubleScientific);   // prints 344.5
      ```
+     **Logical Operator** :
+     ```java
+         class Main {
+         public static void main(String[] args) {
+
+          // && operator
+         System.out.println((5 > 3) && (8 > 5));  // true
+         System.out.println((5 > 3) && (8 < 5));  // false
+
+              // || operator
+         System.out.println((5 < 3) || (8 > 5));  // true
+         System.out.println((5 > 3) || (8 < 5));  // true
+         System.out.println((5 < 3) || (8 < 5));  // false
+
+          // ! operator
+         System.out.println(!(5 == 3));  // true
+         System.out.println(!(5 > 3));  // false
+            }
+        }
+     ```
+     **Ternary Operator :**
+     ```java
+    int februaryDays = 29;
+    String result;
+
+    // ternary operator
+    result = (februaryDays == 28) ? "Not a leap year" : "Leap year";
+    System.out.println(result);
+    // THIS IS SINGLE LINE COMMENT
+    /*
+        THIS IS MULTI LINE COMMENT
+    */
+     ```
