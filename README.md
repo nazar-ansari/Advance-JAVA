@@ -85,6 +85,7 @@
      <hr>
   
  - ## **_Flow-Control_**
+ 
     ```java
         /*          IF ELSE         */
         
@@ -158,3 +159,122 @@
        i++;
      }
     ```
+    ```java
+        /*          CONTINUE CONCEPT    */
+        for (int i = 1; i <= 10; ++i) {
+
+      // if value of i is between 4 and 9
+      // continue is executed
+      if (i > 4 && i < 9) {
+        continue;
+      }
+      System.out.println(i);
+    ```
+    <hr>
+    
+- ## **_Arrays_**
+    
+    An array is a collection of similar types of data.
+    ```java
+        //declare and initialize and array
+        int[] age = {12, 4, 5, 2, 5};
+        
+        // declare an array
+        int[] age = new int[5];
+
+        // initialize array
+        age[0] = 12;
+        age[1] = 4;
+        age[2] = 5;
+        ..             
+        
+        System.out.println("Using for Loop:");
+        for(int i = 0; i < age.length; i++) {
+            System.out.println(age[i]);
+        }
+   
+        System.out.println("Using for-each Loop:");
+        for(int a : age) {
+            System.out.println(a);
+        }
+    ```
+    
+    ![Array-Initialization](https://cdn.programiz.com/sites/tutorial2program/files/initialize-array-during-declaration-java.jpg)
+    
+    **Multidimensional Arrays :**
+     
+    ![MultiDimensional-Array](https://cdn.programiz.com/sites/tutorial2program/files/java-2d-array.jpg)
+     
+     ```java
+        String[][][] data = new String[3][4][2];
+        
+        int[][] a = {
+            {1, 2, 3}, 
+            {4, 5, 6, 9}, 
+            {7}, 
+        };
+      
+        // calculate the length of each row
+        System.out.println("Length of row 1: " + a[0].length);
+        System.out.println("Length of row 2: " + a[1].length);
+        System.out.println("Length of row 3: " + a[2].length);
+     ```
+     ```java
+        int[][][] test = {
+                {
+                  {1, -2, 3}, 
+                  {2, 3, 4}
+                 }, 
+                {
+                {-4, -5, 6, 9}, 
+                {1}, 
+                {2, 3}
+                } 
+                };  
+
+        // for..each loop to iterate through elements of 3d array
+        for (int[][] array2D: test) {
+            for (int[] array1D: array2D) {
+                for(int item: array1D) {
+                    System.out.println(item);
+                }
+            }
+     ```
+   **Copy-Arrays :**
+   
+    ```java
+     int [] numbers = {1, 2, 3, 4, 5, 6};
+     int [] positiveNumbers = numbers;    // copying arrays
+    ```
+    *NOTE :* However, there is a problem with this technique. If we change elements of one array, corresponding elements of the other arrays also change
+    ```java
+        int [] source = {1, 2, 3, 4, 5, 6};
+        int [] destination = new int[6];
+
+        // iterate and copy elements from source to destination
+        for (int i = 0; i < source.length; ++i) {
+            destination[i] = source[i];
+        }
+      
+         // converting array to string
+        System.out.println(Arrays.toString(destination));
+    ```
+    ```java
+        int[] n1 = {2, 3, 12, 4, 12, -2};
+        int[] n3 = new int[5];
+        
+        // copying entire n1 array to n2
+        System.arraycopy(n1, 0, n2, 0, n1.length);
+        System.out.println("n2 = " + Arrays.toString(n2));
+    ```
+    ```java
+        int[] source = {2, 3, 12, 4, 12, -2};
+      
+        // copying entire source array to destination
+        int[] destination1 = Arrays.copyOfRange(source, 0, source.length);      
+        System.out.println("destination1 = " + Arrays.toString(destination1));
+    ```
+    👨‍💻 [TryByRunning](https://www.programiz.com/java-programming/online-compiler)
+    
+    
+    
