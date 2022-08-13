@@ -407,5 +407,138 @@
      
      **Constructors :**
      A constructor in Java is similar to a method that is invoked when an object of the class is created.
+     ```java
+     class Main {
+
+        String languages;
+
+        // constructor accepting single value
+        Main(String lang) {
+            languages = lang;
+            System.out.println(languages + " Programming Language");
+        }
+
+        public static void main(String[] args) {
+
+            // call constructor by passing a single value
+            Main obj1 = new Main("Java");
+            Main obj2 = new Main("Python");
+            Main obj3 = new Main("C");
+            }
+        }   
+     ```
+     ```java
+        int a;
+        boolean b;
+
+        public static void main(String[] args) {
+
+            // A default constructor is called
+            Main obj = new Main();
+
+            System.out.println("Default Value:");
+            System.out.println("a = " + obj.a);
+            System.out.println("b = " + obj.b);
+        }
+     ```
+     ```java
+        OUTPUT:
+        Default Value:
+        a = 0
+        b = false
+     ```
+     Constructors are invoked implicitly when you instantiate objects .<br>
+     A constructor cannot be `abstract` or `static` or `final` .<br>
+     A constructor can be overloaded but can not be overridden .<br>
+     ```java
+       Main() {
+        this.language = "Java";
+        }
+
+       // constructor with a single parameter
+      Main(String language) {
+        this.language = language;
+        }
+
+    public void getName() {
+        System.out.println("Programming Langauage: " + this.language);
+    }
+
+    public static void main(String[] args) {
+
+    // call constructor with no parameter
+    Main obj1 = new Main();
+
+    // call constructor with a single parameter
+    Main obj2 = new Main("Python");
+
+    obj1.getName();
+    obj2.getName();
+    } 
+     ```
+     
+    **Strings :**
+     In Java, a string is a sequence of characters
+     ```java
+        String greet = "Hello! World";
+        System.out.println("String: " + greet);
+
+        // get the length of greet
+        int length = greet.length();
+     ```
+     ```java
+        String first = "Java ";
+        System.out.println("First String: " + first);
+
+        // create second
+        String second = "Programming";
+        System.out.println("Second String: " + second);
+
+        // join two strings
+        String joinedString = first.concat(second);
+     ```
+     ```java
+        String first = "java programming";
+        String second = "java programming";
+        String third = "python programming";
+
+        // compare first and second strings
+        boolean result1 = first.equals(second);
+     ```
+     JVM maintains a string pool to store all of its strings inside the memory. The string pool helps in reusing the strings.<br>If the string already exists, the new string is not created. Instead, the new reference, example points to the already existed string (Java).
+     ```java
+        // creating a char array
+        char[] result;
+        result = str.toCharArray();
+        ----------------------------------------------
+        double x=4.22;
+        System.out.println(String.valueOf(x));
+        ----------------------------------------------
+        System.out.println(str1.toUpperCase()); // "LEARN JAVA"
+        ----------------------------------------------
+        String text = "Java is a fun programming language";
+        String[] result = text.split(" ");
+        for (String str : result) {
+             System.out.print(str + ", ");
+        }
+        ----------------------------------------------
+        int result=text.indexOf("i");
+        // getting the index of character 'a'
+        // search starts at index 4
+        result = str1.indexOf('a', 4);
+        System.out.println(str1.charAt(3));
+        ----------------------------------------------
+        // replace b with c
+        System.out.println(str1.replace('b', 'c'));
+        ----------------------------------------------
+        result = String.join("-", "Java", "is", "fun");
+        System.out.println(result);  // Java-is-fun
+        ----------------------------------------------
+        String str1 = "java is fun";
+        System.out.println(str1.substring(0, 4));
+        ----------------------------------------------
+        boolean result = str1.contains("Java");
+     ```
+     
     
     
