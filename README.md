@@ -1,7 +1,7 @@
 # **_Complete JAVA & Advance OOP'S Concept_** ![JAVA](https://cdn-icons-png.flaticon.com/128/226/226777.png) .
 <hr>
 
-- ## **_Introduction_**
+-  # **_Introduction_**
 
     ```java
         public class HelloWorld {
@@ -84,7 +84,7 @@
      ```
      <hr>
   
- - ## **_Flow-Control_**
+ -  # **_Flow-Control_**
  
     ```java
         /*          IF ELSE         */
@@ -172,7 +172,7 @@
     ```
     <hr>
     
-- ## **_Arrays_**
+-  # **_Arrays_**
     
     An array is a collection of similar types of data.
     ```java
@@ -276,5 +276,136 @@
     ```
     👨‍💻 [TryByRunning](https://www.programiz.com/java-programming/online-compiler)
     
+    <hr>
+    
+-  # **_OOPS_**
+    
+    **Class & Objects :**
+    A class is a blueprint for the object. Before we create an object, we first need to define the class.
+    ```java
+        class Bicycle {
+
+        // state or field
+        private int gear = 5;
+
+        // behavior or method
+        public void braking() {
+            System.out.println("Working of Braking");
+        }
+        }
+    ```
+    An object is called an instance of a class. For example, suppose Bicycle is a class then MountainBicycle, SportsBicycle, TouringBicycle, etc can be considered as objects of the class.
+    
+     ```java
+           className object = new className();
+
+           // for Bicycle class
+           Bicycle sportsBicycle = new Bicycle();
+           Bicycle touringBicycle = new Bicycle();
+     ```
+     *NOTE :* Fields and methods of a class are also called members of the class.
+     ```java
+       class Lamp {
+  
+    // stores the value for light
+    // true if light is on
+    // false if light is off
+        boolean isOn;
+    // method to turn on the light
+    void turnOn() {
+        isOn = true;
+        System.out.println("Light on? " + isOn);
+    }
+
+    // method to turnoff the light
+    void turnOff() {
+        isOn = false;
+        System.out.println("Light on? " + isOn);
+        }
+    }
+
+    class Main {
+       public static void main(String[] args) {
+
+        // create objects led and halogen
+        Lamp led = new Lamp();
+        Lamp halogen = new Lamp();
+        // turn on the light by
+        // calling method turnOn()
+        led.turnOn();
+        // turn off the light by
+        // calling method turnOff()
+        halogen.turnOff();
+        }
+    }
+     ```
+     ```java
+     OUTPUT:
+     Light on? true
+     Light on? false
+     ```
+     ```java
+     class Lamp {
+     boolean isOn;
+     // method to turn on the light
+     void turnOn() {}
+
+      public static void main(String[] args) {
+    
+      // create an object of Lamp
+      Lamp led = new Lamp();
+
+     // access method using object
+     led.turnOn();
+        }
+    }
+     ```
+     
+     **Methods :**
+     A method is a block of code that performs a specific task.
+     ```java
+     class Main {
+
+     // method with no parameter
+    public void display1() {
+        System.out.println("Method without parameter");
+    }
+
+    // method with single parameter
+    public void display2(int a) {
+        System.out.println("Method with a single parameter: " + a);
+    }
+
+    public static void main(String[] args) {    
+    // create an object of Main
+    Main obj = new Main();
+    // calling method with no parameter
+    obj.display1();        
+    // calling method with the single parameter
+    obj.display2(24);
+        }
+    }
+     ```
+     ```java
+     OUTPUT:
+     Method without parameter
+     Method with a single parameter: 24
+     ```
+     ```java
+         private static int getSquare(int x){
+            return x * x;
+        }
+
+        public static void main(String[] args) {
+            for (int i = 1; i <= 5; i++) {
+
+            // method call
+             int result = getSquare(i);
+             System.out.println("Square of " + i + " is: " + result);
+             }
+     ```
+     
+     **Constructors :**
+     A constructor in Java is similar to a method that is invoked when an object of the class is created.
     
     
