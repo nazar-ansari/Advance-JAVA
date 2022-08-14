@@ -944,6 +944,144 @@
         d1.displayInfo();
         }
     }
+     ```
+     **Accessing Attributes of SuperClass :**
+     ```java
+     class Animal {
+        protected String type="animal";
+        }
+
+    class Dog extends Animal {
+        public String type="mammal";
+
+        public void printType() {
+            System.out.println("I am a " + type);
+            System.out.println("I am an " + super.type);
+            }
+        }
+
+    class Main {
+        public static void main(String[] args) {
+            Dog dog1 = new Dog();
+            dog1.printType();
+        }
+    }
 
      ```
+     ```java
+     OUTPUT:
+     I am a mammal
+     I am an animal
+     ```
+     **Using SuperClass To Access The Constructors :**
+     ```java
+     class Animal {
+
+        // default or no-arg constructor of class Animal
+        Animal() {
+            System.out.println("I am an animal");
+            }
+        }
+
+    class Dog extends Animal {
+
+        // default or no-arg constructor of class Dog
+        Dog() {
+            // calling default constructor of the superclass
+            super();
+
+            System.out.println("I am a dog");
+            }
+        }
+
+    class Main {
+        public static void main(String[] args) {
+            Dog dog1 = new Dog();
+            }
+        }
+
+     ```
+     Calling Parameterized Constructors Using Super() 
+     ```java
+     class Animal {
+
+        // default or no-arg constructor
+        Animal() {
+            System.out.println("I am an animal");
+        }
+
+        // parameterized constructor
+        Animal(String type) {
+            System.out.println("Type: "+type);
+            }
+        }
+
+    class Dog extends Animal {
+
+        // default constructor
+        Dog() {
+
+            // calling parameterized constructor of the superclass
+            super("Animal");
+            System.out.println("I am a dog");
+            }
+        }
+
+    class Main {
+        public static void main(String[] args) {
+            Dog dog1 = new Dog();
+            }
+        }
+
+     ```
+     _**Abstract Classed & Methods :**_
+     
+     The abstract class in Java cannot be instantiated (we cannot create objects of abstract classes). 
+     A method that doesn't have its body is known as an abstract method
+     
+     `abstract void display();`
+     
+     *NOTE:* `If the abstract class includes any abstract method, then all the child classes inherited from the abstract superclass must provide the implementation of the abstract method`
+     > Abstraction is an important concept of object-oriented programming that allows us to hide unnecessary details and only show the needed information.
+
+     > This allows us to manage complexity by omitting or hiding details with a simpler, higher-level idea.
+     
+     ```java
+     abstract class MotorBike {
+        abstract void brake();
+        }
+
+    class SportsBike extends MotorBike {
+    
+        // implementation of abstract method
+        public void brake() {
+            System.out.println("SportsBike Brake");
+            }
+        }
+
+    class MountainBike extends MotorBike {
+    
+        // implementation of abstract method
+        public void brake() {
+            System.out.println("MountainBike Brake");
+            }
+        }
+
+    class Main {
+        public static void main(String[] args) {
+            MountainBike m1 = new MountainBike();
+            m1.brake();
+            SportsBike s1 = new SportsBike();
+            s1.brake();
+            }
+        }
+     ```
+     ```java
+     OUTPUT:
+     MountainBike Brake
+     SportsBike Brake
+     ```
+     - An abstract method doesn't have any implementation (method body).
+     - We cannot create objects of an abstract class.
+     - A subclass must override all abstract methods of an abstract class. 
      
