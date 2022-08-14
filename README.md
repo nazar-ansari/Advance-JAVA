@@ -758,7 +758,192 @@
      
      ![Recursion](https://cdn.programiz.com/sites/tutorial2program/files/java-recursive-call.jpg)
      
+     **InstanceOf Operator:**
+     The `instanceof` operator in Java is used to check whether an object is an instance of a particular class or not.
+     ```java
+        // Java program to check if an object of a class is also
+        //  an instance of the interface implemented by the class
+
+        interface Animal {
+        }
+
+        class Dog implements Animal {
+        }
+
+        class Main {
+            public static void main(String[] args) {
+
+            // create an object of the Dog class
+            Dog d1 = new Dog();
+
+            // checks if the object of Dog
+            // is also an instance of Animal
+            System.out.println(d1 instanceof Animal);  // returns true
+            }
+        }
+     ```
+     **Inheritance :**
+     The new class that is created is known as subclass (child or derived class) and the existing class from where the child class is derived is known as superclass (parent or base class).
+     ```java
+        class Animal {
+
+        // field and method of the parent class
+        String name;
+        public void eat() {
+            System.out.println("I can eat");
+            }
+        }
+
+        // inherit from Animal
+        class Dog extends Animal {
+
+        // new method in subclass
+        public void display() {
+            System.out.println("My name is " + name);
+            }
+        }
+
+        class Main {
+            public static void main(String[] args) {
+
+            // create an object of the subclass
+            Dog labrador = new Dog();
+
+            // access field of superclass
+            labrador.name = "Rohu";
+            labrador.display();
+
+            // call method of superclass
+            // using object of subclass
+            labrador.eat();
+            }
+        }
+     ```
      
+     ![Inheritance-Implementation](https://cdn.programiz.com/sites/tutorial2program/files/java-inheritance-implementation.png)
      
+     **super keyword :**
+     ```java
+     class Animal {
+
+    // method in the superclass
+    public void eat() {
+        System.out.println("I can eat");
+        }
+    }
+
+    // Dog inherits Animal
+    class Dog extends Animal {
+
+    // overriding the eat() method
+    @Override
+    public void eat() {
+
+        // call method of superclass
+        super.eat();
+        System.out.println("I eat dog food");
+    }
+
+    // new method in subclass
+    public void bark() {
+        System.out.println("I can bark");
+        }
+    }
+
+    class Main {
+    public static void main(String[] args) {
+
+    // create an object of the subclass
+    Dog labrador = new Dog();
+
+    // call the eat() method
+    labrador.eat();
+    labrador.bark();
+        }
+    }
+     ```
+    **Protected Member In Inheritance :**
+    ```java
+    class Animal {
+        protected String name;
+
+        protected void display() {
+            System.out.println("I am an animal.");
+            }
+        }
+
+    class Dog extends Animal {
+
+        public void getInfo() {
+            System.out.println("My name is " + name);
+            }
+        }
+
+    class Main {
+        public static void main(String[] args) {
+
+            // create an object of the subclass
+            Dog labrador = new Dog();
+
+            // access protected field and method
+            // using the object of subclass
+            labrador.name = "Rocky";
+            labrador.display();
+
+            labrador.getInfo();
+            }
+        }
+    ```
+    ```java
+    OUTPUT:
+    I am an animal.
+    My name is Rocky
+    ```
+    _**Types of Inheritance**_
     
+      Sinle-Inheritance
+        
+      ![SingleInheritance](https://cdn.programiz.com/sites/tutorial2program/files/java-single-inheritance.png)
+        
+      MultiLevel-Inheritance
+        
+      ![Multilevel](https://cdn.programiz.com/sites/tutorial2program/files/java-multilevel-inheritance.png)
+        
+      Hierarchical-Inheritance
+        
+      ![HierarchicalInheritance](https://cdn.programiz.com/sites/tutorial2program/files/java-hierarchical-inheritance.png)
+        
+      Multiple-Inheritance
+        
+      ![Multiple-Inheritance](https://cdn.programiz.com/sites/tutorial2program/files/java-multiple-inheritance.png)
     
+      Hybrid-Inheritance
+       
+      ![Hybrid-Inheritance](https://cdn.programiz.com/sites/tutorial2program/files/java-hybrid-inheritance.png)
+     
+     **Method Overriding :**
+     We cannot override the method declared as `final` and `static`.
+     
+     ```java
+     class Animal {
+        public void displayInfo() {
+        System.out.println("I am an animal.");
+        }
+     }
+
+    class Dog extends Animal {
+        public void displayInfo() {
+        super.displayInfo();
+        System.out.println("I am a dog.");
+        }
+    }
+
+    class Main {
+        public static void main(String[] args) {
+        Dog d1 = new Dog();
+        d1.displayInfo();
+        }
+    }
+
+     ```
+     
