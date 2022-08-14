@@ -610,6 +610,155 @@
             }
         }
      ```
+     *NOTE :* We cannot declare classes or interfaces `protected` in Java.
+     
+     **This `keyword` :**
+     In Java, `this` keyword is used to refer to the current object inside a method or a constructor<br>Mostly , `this` keyword is use to avoid the Ambiguity Between variable for Understanding of Java Compiler .
+     ```java
+     class Main {
+         String name;
+
+        // setter method
+        void setName( String name ) {
+            this.name = name;
+        }
+
+        // getter method
+        String getName(){
+            return this.name;
+        }
+
+        public static void main( String[] args ) {
+            Main obj = new Main();
+            // calling the setter and the getter method
+            obj.setName("Toshiba");
+            System.out.println("obj.name: "+obj.getName());
+            }
+        }
+     ```
+     we cannot call the constructor explicitly. Instead, we have to use this keyword
+     ```java
+        class Complex {
+            private int a, b;
+            // constructor with 2 parameters
+            private Complex( int i, int j ){
+                this.a = i;
+                this.b = j;
+            }
+            // constructor with single parameter
+            private Complex(int i){
+                // invokes the constructor with 2 parameters
+                this(i, i); 
+            }
+            // constructor with no parameter
+            private Complex(){
+                // invokes the constructor with single parameter
+                this(0);
+            }
+            @Override
+            public String toString(){
+                return this.a + " + " + this.b + "i";
+            }
+            
+            public static void main( String[] args ) {  
+                // creating object of Complex class
+                // calls the constructor with 2 parameters
+                Complex c1 = new Complex(2, 3); 
+    
+                // calls the constructor with a single parameter
+                Complex c2 = new Complex(3);
+
+                // calls the constructor with no parameters
+                Complex c3 = new Complex();
+
+                // print objects
+                System.out.println(c1);
+                System.out.println(c2);
+                System.out.println(c3);
+            }
+        }
+     ```
+     **Passing This as an Argument**
+     ```java
+     class ThisExample {
+        // declare variables
+        int x;
+        int y;
+
+        ThisExample(int x, int y) {
+            // assign values of variables inside constructor
+            this.x = x;
+            this.y = y;
+            // value of x and y before calling add()
+            System.out.println("Before passing this to addTwo() method:");
+            System.out.println("x = " + this.x + ", y = " + this.y);
+
+            // call the add() method passing this as argument
+            add(this);
+
+            // value of x and y after calling add()
+            System.out.println("After passing this to addTwo() method:");
+            System.out.println("x = " + this.x + ", y = " + this.y);
+        }
+
+        void add(ThisExample o){
+            o.x += 2;
+            o.y += 2;
+            }
+        }
+
+    class Main {
+        public static void main( String[] args ) {
+            ThisExample obj = new ThisExample(1, -2);
+            }
+        }
+     ```
+     **Final-Keyword :**
+     In Java, the `final` keyword is used to denote constants. It can be used with variables, methods, and classes.
+     - The final Variable Cannot be Reinitialized
+     - The final method Cannot be Overridden
+     - The final Class Cannot be Extended
+     
+     ```java
+     final int AGE=32;
+     AGE=44 // Error Cannot Reinitialized
+     ```
+     ```java
+     class FinalDemo {
+        // create a final method
+        public final void display() {
+        System.out.println("This is a final method.");
+        }
+    }
+
+    class Main extends FinalDemo {
+    // try to override final method Will Result in Error
+    public final void display() {
+        System.out.println("The final method is overridden.");
+    }
+
+    public static void main(String[] args) {
+        Main obj = new Main();
+        obj.display();
+        }
+    }
+
+     ```
+     ```java
+     final class FinalClass{
+     }
+     class Main extends FinalClass{ // Will Result Error
+        Main obj = new Main();
+        obj.display();
+     }     
+     ```
+     
+     **Recursion :**
+     A Method Invoking Itself is Called Recursion 
+     
+     ![Recursion](https://cdn.programiz.com/sites/tutorial2program/files/java-recursive-call.jpg)
+     
+     
      
     
     
