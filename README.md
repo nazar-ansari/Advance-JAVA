@@ -537,7 +537,78 @@
         String str1 = "java is fun";
         System.out.println(str1.substring(0, 4));
         ----------------------------------------------
-        boolean result = str1.contains("Java");
+        boolean result = str1.contains("Java");        
+     ```
+     **Access-Modifiers :**
+     In Java, access modifiers are used to set the accessibility (visibility) of classes, interfaces, variables, methods, constructors, data members, and the setter methods. 
+     | **Modifier** | **Description**                                                    |
+     | ------------ | ------------------------------------------------------------------ |
+     | Default      | declarations are visible only within the package (package private) |
+     | Private      | declarations are visible within the class only                     |
+     | Protected    | declarations are visible within the package or all subclasses      |
+     | Public       | declarations are visible everywhere                                |
+     
+     Private Access Modifier
+     ```java
+        class Data {
+        // private variable
+        private String name;
+            }
+
+        public class Main {
+        public static void main(String[] main){
+        // create an object of Data
+        Data d = new Data();
+        // access private variable and field from another class
+        d.name = "Programiz";
+            }
+        }
+     ```
+     ```java
+        OUTPUT:
+        Main.java:18: error: name has private access in Data
+        d.name = "Programiz";
+         ^
+     ```
+     But The Problem Can Be Solved Using `Getters` & `Setters`
+     ```java
+     class Data {
+        private String name;
+        // getter method
+        public String getName() {
+            return this.name;
+        }
+        // setter method
+        public void setName(String name) {
+            this.name= name;
+        }
+    }
+    public class Main {
+        public static void main(String[] main){
+            Data d = new Data();
+            // access the private variable using the getter and setter
+            d.setName("Programiz");
+            System.out.println(d.getName());
+            }
+        }
+     ```
+     Protected Access Modifier
+     ```java
+        class Animal {
+        // protected method
+        protected void display() {
+            System.out.println("I am an animal");
+        }
+    }
+
+    class Dog extends Animal {
+        public static void main(String[] args) {
+            // create an object of Dog class
+            Dog dog = new Dog();
+            // access protected method
+            dog.display();
+            }
+        }
      ```
      
     
