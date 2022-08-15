@@ -1267,3 +1267,70 @@
       I am Programming Language.
       I am Object-Oriented Programming Language.
       ```
+      **Encapsulation :**
+      
+      It prevents outer classes from accessing and changing fields and methods of a class. This also helps to achieve data hiding.
+      ```java
+      class Area {
+
+        // fields to calculate area
+        int length;
+        int breadth;
+
+        // constructor to initialize values
+        Area(int length, int breadth) {
+            this.length = length;
+            this.breadth = breadth;
+        }
+
+        // method to calculate area
+        public void getArea() {
+            int area = length * breadth;
+            System.out.println("Area: " + area);
+            }
+        }
+
+    class Main {
+        public static void main(String[] args) {
+
+            // create object of Area
+            // pass value of length and breadth
+            Area rectangle = new Area(5, 6);
+            rectangle.getArea();
+            }
+        }
+      ```
+      > NOTE :  People often consider encapsulation as data hiding, but that's not entirely true.Encapsulation refers to the bundling of related fields and methods together. This can be used to achieve data hiding. Encapsulation in itself is not data hiding.
+
+      ```java
+      class Person {
+
+        // private field
+        private int age;
+
+        // getter method
+        public int getAge() {
+            return age;
+        }
+
+        // setter method
+        public void setAge(int age) {
+            this.age = age;
+            }
+        }
+
+    class Main {
+        public static void main(String[] args) {
+
+            // create an object of Person
+            Person p1 = new Person();
+
+            // change age using setter
+            p1.setAge(24);
+
+            // access age using getter
+            System.out.println("My age is " + p1.getAge());
+            }
+        }
+      ```
+      Making `age` private allowed us to restrict unauthorized access from outside the class. This is **data hiding** .
