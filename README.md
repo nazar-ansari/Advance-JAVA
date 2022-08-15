@@ -1085,3 +1085,185 @@
      - We cannot create objects of an abstract class.
      - A subclass must override all abstract methods of an abstract class. 
      
+     **Interfaces :**
+     
+     An interface is a fully abstract class. It includes a group of abstract methods (methods without a body).
+     ```java
+     interface Polygon {
+        void getArea(int length, int breadth);
+        }
+
+     // implement the Polygon interface
+    class Rectangle implements Polygon {
+
+        // implementation of abstract method
+        public void getArea(int length, int breadth) {
+            System.out.println("The area of the rectangle is " + (length * breadth));
+            }
+        }
+
+    class Main {
+        public static void main(String[] args) {
+            Rectangle r1 = new Rectangle();
+            r1.getArea(5, 6);
+            }
+        }
+     ```
+     ```java
+     OUTPUT:
+     The area of the rectangle is 30
+     ```
+     > *Note:*All the methods inside an interface are implicitly public and all fields are implicitly `public static final` .
+     To Implement the body inside the interface we can use the `default` keyword before it .
+     ```java
+     public default void getSides(){
+        //body of getSides()
+     }
+     ```
+     ```java
+     // To use the sqrt function
+    import java.lang.Math;
+
+    interface  Polygon {
+        void getArea();
+  
+    // calculate the perimeter of a Polygon
+    default void getPerimeter(int... sides) {
+          int perimeter = 0;
+          for (int side: sides) {
+            perimeter += side;
+        }
+
+    System.out.println("Perimeter: " + perimeter);
+        }
+    }
+
+    class Triangle implements Polygon {
+        private int a, b, c;
+        private double s, area;
+
+        // initializing sides of a triangle
+        Triangle(int a, int b, int c) {
+            this.a = a;
+            this.b = b;
+            this.c = c;
+            s = 0;
+        }
+
+    // calculate the area of a triangle
+    public void getArea() {
+          s = (double) (a + b + c)/2;
+          area = Math.sqrt(s*(s-a)*(s-b)*(s-c));
+          System.out.println("Area: " + area);
+        }
+     }
+
+    class Main {
+    public static void main(String[] args) {
+          Triangle t1 = new Triangle(2, 3, 4);
+
+        // calls the method of the Triangle class
+            t1.getArea();
+
+        // calls the method of Polygon
+            t1.getPerimeter(2, 3, 4);
+            }
+        }
+     ```
+     
+     **Polymorphism :**
+     
+     Polymorphism help us to achieve the consistency in code by using same method for different arguments .
+     > NOTE : The print() method is also an example of polymorphism. It is used to print values of different types like char, int, string, etc.
+     
+     We can Achieve the polymorphism in Two Ways :
+      - *Method Overriding*
+      - *Method Overloading*
+      - ~Operator Overloading~ (Doesn't Support in Java)
+     
+     ```java
+     class Language {
+        public void displayInfo() {
+            System.out.println("Common English Language");
+            }
+        }
+
+    class Java extends Language {
+        @Override
+        public void displayInfo() {
+            System.out.println("Java Programming Language");
+            }
+        }
+
+    class Main {
+        public static void main(String[] args) {
+
+            // create an object of Java class
+            Java j1 = new Java();
+            j1.displayInfo();
+
+            // create an object of Language class
+            Language l1 = new Language();
+            l1.displayInfo();
+            }
+        }
+     ```
+     ```java
+     OUTPUT:
+     Java Programming Language
+     Common English Language
+     ```
+     Working of JAVA Polymorphism 
+     
+      ![java-polymorphism](https://cdn.programiz.com/sites/tutorial2program/files/java-polymorphism-implementation.png)
+      
+      > NOTE : he method that is called is determined during the execution of the program. Hence, method overriding is a `run-time` polymorphism.
+      
+      ```java
+        // method with no arguments
+        display() {...}
+
+        // method with a single char type argument
+        display(char symbol) {...}
+      ```
+      > NOTE :  The method that is called is determined by the compiler. Hence, it is also known as `compile-time` polymorphism
+      
+      > NOTE :  In languages like C++, we can define operators to work differently for different operands. However, Java doesn't support user-defined operator overloading.
+      
+      **Polymorphic Variable :**
+      
+      A variable is called polymorphic if it refers to different values under different conditions.
+      ```java
+     class ProgrammingLanguage {
+        public void display() {
+            System.out.println("I am Programming Language.");
+            }
+        }
+
+     class Java extends ProgrammingLanguage {
+        @Override
+        public void display() {
+            System.out.println("I am Object-Oriented Programming Language.");
+            }
+        }
+
+    class Main {
+        public static void main(String[] args) {
+
+            // declare an object variable
+            ProgrammingLanguage pl;
+
+            // create object of ProgrammingLanguage
+            pl = new ProgrammingLanguage();
+            pl.display();
+
+            // create object of Java class
+            pl = new Java();
+            pl.display();
+            }
+        }
+      ```
+      ```java
+      I am Programming Language.
+      I am Object-Oriented Programming Language.
+      ```
